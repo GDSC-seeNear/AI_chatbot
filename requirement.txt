@@ -1,0 +1,6 @@
+
+SQLAlchemy
+fastapi
+
+transformers
+torch

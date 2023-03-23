@@ -17,9 +17,11 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
+tokenizer = AutoTokenizer.from_pretrained("./chat_bot",padding_side="left")
+
 class chat():
   def __init__(self):
-    self.tokenizer = AutoTokenizer.from_pretrained("./chat_bot",padding_side='left')
+    self.tokenizer = AutoTokenizer.from_pretrained("./chat_bot",padding_side="left")
     self.model = AutoModelForCausalLM.from_pretrained("./chat_bot")
 
   def __call__(self, input):
