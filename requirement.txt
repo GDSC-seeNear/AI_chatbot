@@ -1,6 +1,7 @@
-
+pymysql
 SQLAlchemy
 fastapi
+uvicorn
 
 transformers
 torch
