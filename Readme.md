@@ -8,7 +8,7 @@ We fine-tuned the Ko-Dialog(GPT-2) model by classifying datasets that can relate
 
 Our application provides answers for one conversation, but using the code below, we generate the appropriate answers by reflecting the previous conversation.  
 
-If you want to use it, you can use the [model](https://huggingface.co/keonju/chat_bot) as follows.
+If you want to use it, you can use the [model](https://huggingface.co/keonju/chat_bot) as follows.  
 
 ```python
 
@@ -61,8 +61,8 @@ for step in range(5):
 1. Fine-Tuned Model
 AI chatbot model fine-tuned [Ko-Dialo GPT](https://huggingface.co/byeongal/Ko-DialoGPT) for empathetic answers.  
 
-2. Dataset
-[Korean Chatbot Dataset](https://github.com/songys/Chatbot_data)
-[Continuous Conversation Dataset with Korean Sentiment Information](https://aihub.or.kr/aihubdata/data/view.do?currMenu=120&topMenu=100&dataSetSn=271&aihubDataSe=extrldata)
-[A one-shot conversation dataset with Korean emotion information](https://aihub.or.kr/aihubdata/data/view.do?currMenu=120&topMenu=100&dataSetSn=270&aihubDataSe=extrldata)
-[Wellness Conversation Script Dataset](https://aihub.or.kr/aihubdata/data/view.do?currMenu=120&topMenu=100&dataSetSn=267&aihubDataSe=extrldata)
+2. Dataset  
+[Korean Chatbot Dataset](https://github.com/songys/Chatbot_data)  
+[Continuous Conversation Dataset with Korean Sentiment Information](https://aihub.or.kr/aihubdata/data/view.do?currMenu=120&topMenu=100&dataSetSn=271&aihubDataSe=extrldata)  
+[A one-shot conversation dataset with Korean emotion information](https://aihub.or.kr/aihubdata/data/view.do?currMenu=120&topMenu=100&dataSetSn=270&aihubDataSe=extrldata)  
+[Wellness Conversation Script Dataset](https://aihub.or.kr/aihubdata/data/view.do?currMenu=120&topMenu=100&dataSetSn=267&aihubDataSe=extrldata)  
