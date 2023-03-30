@@ -1,0 +1,10 @@
+pymysql
+
+aiomysql
+SQLAlchemy
+fastapi
+uvicorn
+aiosqlite
+
+transformers
+torch
