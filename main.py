@@ -1,16 +1,21 @@
 import datetime
 from json import JSONEncoder
 
+from sqlalchemy import Null
+
 from chatbot_class import chat
 
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
 from schemas import request_chat
-import chatRepository, models, schemas
+import chatRepository
+import models
+import schemas
 from database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
+
 
 class CustomJSONEncoder(JSONEncoder):
     def default(self, obj):
@@ -23,6 +28,7 @@ class CustomJSONEncoder(JSONEncoder):
         else:
             return list(iterable)
         return JSONEncoder.default(self, obj)
+
 
 app = FastAPI()
 app.json_encoder = CustomJSONEncoder
@@ -38,20 +44,17 @@ def get_db():
 
 
 @app.post("/")
-def read_root(request: request_chat,db: Session = Depends(get_db)):
+def read_root(request: request_chat, db: Session = Depends(get_db)):
 
-    after_chat = chatRepository.create_chat(db,request)
+    after_chat = chatRepository.create_chat(db, request)
 
     a = chat()
     output = a(request.content)
 
-    new_chat = {"content":output,"is_user_send":False,"elderly_id":request.elderly_id}
+    new_chat = {"content": output, "userSend": False,
+                "elderlyId": request.elderlyId, "type": None}
     response_chat = request_chat(**new_chat)
-    before_chat = chatRepository.create_chat(db,response_chat)
 
+    before_chat = chatRepository.create_chat(db, response_chat)
 
-    return output
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
+    return before_chat
