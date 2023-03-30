@@ -58,10 +58,10 @@ for step in range(5):
 ```
 
 ### Reference
-1. Fine-Tuned Model
+1. Fine-Tuned Model  
 AI chatbot model fine-tuned [Ko-Dialo GPT](https://huggingface.co/byeongal/Ko-DialoGPT) for empathetic answers.  
 
-2. Dataset  
+2. Dataset    
 [Korean Chatbot Dataset](https://github.com/songys/Chatbot_data)  
 [Continuous Conversation Dataset with Korean Sentiment Information](https://aihub.or.kr/aihubdata/data/view.do?currMenu=120&topMenu=100&dataSetSn=271&aihubDataSe=extrldata)  
 [A one-shot conversation dataset with Korean emotion information](https://aihub.or.kr/aihubdata/data/view.do?currMenu=120&topMenu=100&dataSetSn=270&aihubDataSe=extrldata)  
