@@ -8,3 +8,5 @@ myenv
 .vscode/
 
 nohup.out
+
+chat_bot/
