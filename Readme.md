@@ -101,8 +101,7 @@ $ uvicorn main:app —host 0.0.0.0 --port 8080
 
 - - -
 ### Tensorflow lite
-This is a Tensorflowlite model made with Transformer structure. I only checked that it works on Python.
-```python
+This is a Tensorflow lite model that was not used in the submission application but was created in the Transformer structure to attempt the device. I only checked that it works on Python.```python
 from tensorflow.lite.python import interpreter
 interpreter = tf.lite.Interpreter(model_content=tflite_model)
 
