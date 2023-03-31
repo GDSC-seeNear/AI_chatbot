@@ -57,6 +57,49 @@ for step in range(5):
         print("DialoGPT: {}".format(tokenizer.decode(chat_history_ids[:, bot_input_ids.shape[-1]:][0], skip_special_tokens=True)))
 ```
 
+- - -
+</br>
+
+# Start Guide
+
+**Requirments**
+
+What you need to build and run this application:   
+- Python 3.10
+- MySQL 8.0.26
+
+**Installation**
+```
+$ git clone https://github.com/GDSC-seeNear/AI_chatbot.git
+```
+If Linux
+```
+$ sudo apt-get install git-lfs
+$ git lfs install
+```
+
+If Mac Os
+```
+$ brew install git-lfs
+$ git lfs install
+```
+
+```
+$ pip install -r requirements.txt
+$ git clone https://huggingface.co/keonju/chat_bot
+```
+
+**.env File**
+```
+SQLALCHEMY_DATABASE_URL=mysql+pymysql://{user}}:{user_password}@{Host}:{Port}/{Database}
+```
+**Run**
+```
+$ uvicorn main:app —host 0.0.0.0 --port 8080
+```
+</br>
+
+- - -
 ### Reference
 1. Fine-Tuned Model  
 AI chatbot model fine-tuned [Ko-Dialo GPT](https://huggingface.co/byeongal/Ko-DialoGPT) for empathetic answers.  
