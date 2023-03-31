@@ -150,7 +150,7 @@ interpreter.invoke()
 # Ouptput
 output_tensor = interpreter.get_tensor(output_details[0]['index'])
 print(output_tensor.item().decode('utf-8')) # 오늘 우울한 일이 있었나봐요 .
-'''
+```
 
 - - -
 ### Reference
