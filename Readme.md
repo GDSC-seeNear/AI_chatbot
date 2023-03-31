@@ -100,6 +100,57 @@ $ uvicorn main:app —host 0.0.0.0 --port 8080
 </br>
 
 - - -
+### Tensorflow lite
+This is a Tensorflowlite model made with Transformer structure. I only checked that it works on Python.
+```python
+from tensorflow.lite.python import interpreter
+interpreter = tf.lite.Interpreter(model_content=tflite_model)
+
+signatures = interpreter.get_signature_list()
+interpreter.get_signature_list() # {'serving_default': {'inputs': ['sentence'], 'outputs': ['output_0']}}
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
+input_details 
+'''
+[{'name': 'serving_default_sentence:0',
+  'index': 0,
+  'shape': array([], dtype=int32),
+  'shape_signature': array([], dtype=int32),
+  'dtype': numpy.bytes_,
+  'quantization': (0.0, 0),
+  'quantization_parameters': {'scales': array([], dtype=float32),
+   'zero_points': array([], dtype=int32),
+   'quantized_dimension': 0},
+  'sparsity_parameters': {}}]
+'''
+output_details
+'''
+[{'name': 'StatefulPartitionedCall:0',
+  'index': 69,
+  'shape': array([], dtype=int32),
+  'shape_signature': array([], dtype=int32),
+  'dtype': numpy.bytes_,
+  'quantization': (0.0, 0),
+  'quantization_parameters': {'scales': array([], dtype=float32),
+   'zero_points': array([], dtype=int32),
+   'quantized_dimension': 0},
+  'sparsity_parameters': {}}]
+'''
+
+# Input
+input_data = "나 오늘 우울해".encode("utf-8")
+input_array = np.array(input_data, dtype=np.bytes_)
+
+# Run
+interpreter.allocate_tensors()
+interpreter.set_tensor(input_details[0]['index'], input_array)
+interpreter.invoke()
+
+# Ouptput
+output_tensor = interpreter.get_tensor(output_details[0]['index'])
+print(output_tensor.item().decode('utf-8')) # 오늘 우울한 일이 있었나봐요 .
+
+- - -
 ### Reference
 1. Fine-Tuned Model  
 AI chatbot model fine-tuned [Ko-Dialo GPT](https://huggingface.co/byeongal/Ko-DialoGPT) for empathetic answers.  
